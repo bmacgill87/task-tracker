@@ -1,21 +1,13 @@
-# CS3035 – Course Project Description
+# CS3035 – Project 1
 
-## Description of Your Project
+The application that I created is called the Task Tracker. It's an application that can manage tasks for various courses. It is essentially a detailed to-do app, and it works by allowing users to input the different courses they're taking and then add tasks for those courses. The main reason that I decided to build this application is because I spend a lot of time at the beginning of each week mapping out my schedule with all my assignments and tests on my calendar, only to go to campus and have no reference to it. This application will give me a transportable view of my weekly tasks if I want it. There are many applications out there that I could be using for this very purpose, but by building my own task management application, I have them organized in a specific format.
 
-Below, provide a short description of what your project is, how it works, and why you selected this as your project.
+As stated above, the main focus of my project is to manage tasks for different courses. Both courses and tasks are extremely important, and are the domain objects present in my application. They are both managed extensively through model interactions, and can be created, edited, and removed as necessary.
 
-## Requirements
+My application contains nine different views, but two of those views only serve to display a particular view at a given time. One of the main challenges I faced when building my application was that I wanted to display different views in the same location for certain actions. Initially, I wasn't sure how to implement this, but I eventually figured out that I could have a focal view that could add and remove views as certain actions were performed. The rest of the views in my application correlate to the different features provided. Since the domain objects of my application are courses and tasks, I needed to be able to manage each of them, and I did so with multiple views for each. I implemented three separate views for each: a view containing all active instances, a view to add instances, and a view to edit active instances. I also have a history view present in my application, that displays completed tasks.
 
-- How/What different views did you provide for some aspect of your model?
+Aside from the challenge of figuring out how to switch views in the same location, another challenge I encountered was the limitations of SimpleKit's design implementations. I found that designing my application with SimpleKit was more challenging than it should have been. This was for various reasons, but mainly because I didn't have much freedom when controlling margins, borders, and other basic design properties. "Simple" is in the name for a reason, but it would have been nice to have the authority to do margin-left or border-bottom for example. Instead, more complicated workarounds had to be used to achieve these properties, or they were not possible.
 
-- What are the different domain objects that can be created/edited in your application?
+There were some aspects of my project that I would have liked to improve. One of these aspects was the design, but again, I was slightly limited by SimpleKit. For example, when I user is adding a task, instead of manually inputting the course, I would have liked for there to be a dropdown of current courses that the user could choose from. Unfortunately, this is not a implementation feature that SimpleKit provides. Another improvement that I would have liked to make is increased error checking. I spent the majority of my time working with the logic of the information flow, and not so much time working on error checking. I think this is a detail that would improve my project quite a bit.
 
-- What parts of the application/project did you find particularly challenging?
-  And, what would you have liked to improve?
-
-- Any other comments on the project?
-
-
-
-
-
+Overall, I had a lot of fun building this project, and it was nice to put what we've learned throughout the term so far into practice by designing an application that interests us.
