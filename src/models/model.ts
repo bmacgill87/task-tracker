@@ -1,4 +1,4 @@
-import { Subscriber } from "./subscriber";
+import { Subscriber } from "../subscriber";
 import { Course } from "./course";
 import { Assignment } from "./assignment";
 
@@ -65,6 +65,16 @@ export class Model {
 
     // methods
     // **************************************************
+
+    // clear
+    public emptyString() {
+        return "";
+    }
+
+    // date
+    public dateFormat() {
+        return "YYYY/MM/DD";
+    }
 
     // new course
     public addNewCourse(subject: string, code: string, desc: string) {

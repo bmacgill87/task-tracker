@@ -3,16 +3,16 @@ import {
     SKButton,
     SKContainer,
     SKLabel
-} from "./simplekit/src/imperative-mode";
-import { Subscriber } from "./subscriber";
-import { Model } from "./model";
-import { Controller } from "./controller";
+} from "../../simplekit/src/imperative-mode";
+import { Subscriber } from "../subscriber";
+import { Model } from "../models";
+import { Controller } from "../controllers";
 
 export class CourseView extends SKContainer implements Subscriber {
 
     // declarations
 
-    private _model: Model;
+    private _model: Model = new Model();
 
     private _containers: SKContainer[] = [];
     private _labels: SKLabel[] = [];

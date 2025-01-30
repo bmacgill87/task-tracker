@@ -4,16 +4,16 @@ import {
     SKContainer,
     SKLabel,
     SKTextfield
-} from "./simplekit/src/imperative-mode";
-import { Subscriber } from "./subscriber";
-import { Model } from "./model";
-import { Controller } from "./controller";
+} from "../../simplekit/src/imperative-mode";
+import { Subscriber } from "../subscriber";
+import { Model } from "../models";
+import { Controller } from "../controllers";
 
-export class CourseEditView extends SKContainer implements Subscriber {
+export class CourseInputView extends SKContainer implements Subscriber {
 
     // declarations
 
-    private _model: Model;
+    private _model: Model = new Model();
 
     private panelWidth = 250;
     private panelHeight = 225;
@@ -26,15 +26,14 @@ export class CourseEditView extends SKContainer implements Subscriber {
     private fieldWidth = 100;
     private fieldHeight = 18;
 
-    private buttonContainerWidth = 150;
-    private buttonWidth = 70;
+    private buttonWidth = 40;
 
     private numRows = 5;
 
     // view elements
     // **************************************************
     private header: SKContainer = new SKContainer({ width: this.panelWidth, height: this.headerHeight });
-    private headerLabel: SKLabel = new SKLabel({ text: "Edit Course", align: "centre", width: this.panelWidth, height: this.headerHeight });
+    private headerLabel: SKLabel = new SKLabel({ text: "Add New Course", align: "centre", width: this.panelWidth, height: this.headerHeight });
 
     private grid1: SKContainer = new SKContainer({ width: this.panelWidth, height: (this.panelHeight - this.headerHeight) / this.numRows });
     private subject: SKContainer = new SKContainer({ width: this.propertyWidth, height: this.propertyHeight });
@@ -52,9 +51,7 @@ export class CourseEditView extends SKContainer implements Subscriber {
     private descriptionField: SKTextfield = new SKTextfield({ width: this.propertyWidth, height: this.fieldHeight });
 
     private grid4: SKContainer = new SKContainer({ width: this.panelWidth, height: (this.panelHeight - this.headerHeight) / this.numRows });
-    private buttons: SKContainer = new SKContainer({ width: this.buttonContainerWidth, height: this.propertyHeight });
-    private apply: SKButton = new SKButton({ text: "Apply", width: this.buttonWidth, height: this.fieldHeight });
-    private remove: SKButton = new SKButton({ text: "Remove", width: this.buttonWidth, height: this.fieldHeight });
+    private button: SKButton = new SKButton({ text: "Add", width: this.buttonWidth, height: this.fieldHeight });
 
     // constructor
     constructor() {
@@ -122,7 +119,6 @@ export class CourseEditView extends SKContainer implements Subscriber {
         // code
         this.code.fill = "white";
         this.code.border = "white";
-        this.code.padding = 3;
         this.code.layoutMethod = Layout.makeFillRowLayout();
 
         this.codeLabel.font = "12pt sans-serif";
@@ -131,7 +127,6 @@ export class CourseEditView extends SKContainer implements Subscriber {
         this.codeField.font = "10pt sans-serif";
         this.codeField.fontColour = "#4F4F4F";
         this.codeField.margin = 2;
-
         this.codeField.radius = 8;
 
         // description
@@ -147,20 +142,9 @@ export class CourseEditView extends SKContainer implements Subscriber {
         this.descriptionField.fontColour = "#4F4F4F";
         this.descriptionField.radius = 8;
 
-
-        // buttons
-        // **************************************************
-
-        // layout
-        this.buttons.layoutMethod = Layout.makeFillRowLayout({ gap: 10 });
-
-        // apply
-        this.apply.font = "12pt sans-serif";
-        this.apply.fontColour = "#3F3F3F";
-
-        // remove
-        this.remove.font = "12pt sans-serif";
-        this.remove.fontColour = "#3F3F3F";
+        // button
+        this.button.font = "10pt sans-serif";
+        this.button.fontColour = "#3F3F3F";
 
         // add elements
         // **************************************************
@@ -183,9 +167,7 @@ export class CourseEditView extends SKContainer implements Subscriber {
         this.description.addChild(this.descriptionField);
 
         this.addChild(this.grid4);
-        this.grid4.addChild(this.buttons);
-        this.buttons.addChild(this.apply);
-        this.buttons.addChild(this.remove);
+        this.grid4.addChild(this.button);
 
     }
 
@@ -196,19 +178,15 @@ export class CourseEditView extends SKContainer implements Subscriber {
 
     // update
     update(): void {
-        this.subjectField.text = "";
-        this.codeField.text = "";
-        this.descriptionField.text = "";
+        this.subjectField.text = this._model.emptyString();
+        this.codeField.text = this._model.emptyString();
+        this.descriptionField.text = this._model.emptyString();
     }
 
     // set events
     public setEvents(c: Controller) {
-        this.apply.addEventListener("action", () => {
-            c.applyCourseChange(this.subjectField.text, this.codeField.text, this.descriptionField.text);
-        })
-
-        this.remove.addEventListener("action", () => {
-            c.removeCourse();
+        this.button.addEventListener("action", () => {
+            c.newCourse(this.subjectField.text, this.codeField.text, this.descriptionField.text);
         })
     }
 

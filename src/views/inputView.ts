@@ -4,16 +4,16 @@ import {
     SKContainer,
     SKLabel,
     SKTextfield
-} from "./simplekit/src/imperative-mode";
-import { Subscriber } from "./subscriber";
-import { Model } from "./model";
-import { Controller } from "./controller";
+} from "../../simplekit/src/imperative-mode";
+import { Subscriber } from "../subscriber";
+import { Model } from "../models";
+import { Controller } from "../controllers";
 
 export class InputView extends SKContainer implements Subscriber {
 
     // declarations
 
-    private _model: Model;
+    private _model: Model = new Model();
 
     private panelWidth = 300;
     private panelHeight = 450;
@@ -205,10 +205,10 @@ export class InputView extends SKContainer implements Subscriber {
 
     // update
     update(): void {
-        this.courseField.text = "";
-        this.titleField.text = "";
-        this.dateField.text = "YYYY/MM/DD";
-        this.descriptionField.text = "";
+        this.courseField.text = this._model.emptyString();
+        this.titleField.text = this._model.emptyString();
+        this.dateField.text = this._model.dateFormat();
+        this.descriptionField.text = this._model.emptyString();
     }
 
     // events

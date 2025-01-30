@@ -5,18 +5,18 @@ import {
   SKContainer,
   Layout,
   SKLabel,
-} from "./simplekit/src/imperative-mode";
-import { Model } from "./model";
-import { MainView } from "./mainView";
-import { ActiveView } from "./activeView";
-import { InputView } from "./inputView";
-import { EditView } from "./editView";
-import { SideView } from "./sideView";
-import { CourseView } from "./courseView";
-import { CourseInputView } from "./courseInputView";
-import { CourseEditView } from "./courseEditView";
-import { HistoryView } from "./historyView";
-import { Controller } from "./controller";
+} from "../simplekit/src/imperative-mode";
+import { Model } from "./models";
+import { MainView } from "./views";
+import { ActiveView } from "./views";
+import { InputView } from "./views";
+import { EditView } from "./views";
+import { SideView } from "./views";
+import { CourseView } from "./views";
+import { CourseInputView } from "./views";
+import { CourseEditView } from "./views";
+import { HistoryView } from "./views";
+import { Controller } from "./controllers";
 
 // root
 const root = new SKContainer();

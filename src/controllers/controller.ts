@@ -1,8 +1,8 @@
-import { Model } from "./model";
+import { Model } from "../models";
 
 export class Controller {
 
-    private _model: Model;
+    private _model: Model = new Model();
 
     // set model
     set model(m: Model) {
