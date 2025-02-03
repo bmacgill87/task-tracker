@@ -3,7 +3,9 @@
 ### Project Description 📝
 This is an interactive application that allows users to manage and track course-related tasks.
 
-<img src="imgs/TaskTracker.png" alt="Task Tracker Image" width="600" height="400"/>
+<p align="center">
+    <img src="imgs/TaskTracker.png" alt="Task Tracker Image" width="600" height="400"/>
+</p>
 
 ### Implementation 🛠
 The technology used in the creation of the application includes TypeScript and Node.js and it was developed with a Model-View-Controller (MVC) architecture.
