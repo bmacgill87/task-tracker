@@ -11,9 +11,9 @@ Built using TypeScript and Node.js, this application follows a Model-View-Contro
 
 ### Setup
 To set up the project environment, follow these steps:
-** 1. ```git submodule init```**
-** 2. ```git submodule update```**
-** 3. ```npm install```**
+1. ```git submodule init```
+2. ```git submodule update```
+3. ```npm install```
 
 To run the application, use:
-** 1. ```npm run dev```**
+1. ```npm run dev```
