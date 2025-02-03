@@ -10,7 +10,7 @@ This is an interactive application that allows users to manage and track course-
 ---
 
 ### Implementation 🛠
-Built using TypeScript and Node.js, this application follows a Model-View-Controller architecture for clean separartion of concerns.
+Built using TypeScript and Node.js, this application follows a Model-View-Controller (MVC) architecture for clean separation of concerns.
 
 ---
 
