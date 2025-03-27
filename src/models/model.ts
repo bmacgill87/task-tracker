@@ -83,11 +83,9 @@ export class Model {
             if (subject && code) {
                 const course = new Course(subject, Number(code), desc);
                 this._courses.push(course);
+                this.notifySubscribers();
             }
-
         }
-
-        this.notifySubscribers();
     }
 
     // new assignment
@@ -107,13 +105,11 @@ export class Model {
                         if (!isNaN(dueDate.getTime())) {
                             const assign = new Assignment(course, title, dueDate, description);
                             this._assignments.push(assign);
+                            this.notifySubscribers();
                         }
                     }
-
                 }
             }
-
-            this.notifySubscribers();
         }
     }
 

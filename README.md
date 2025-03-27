@@ -10,7 +10,8 @@ This is an interactive application that allows users to manage and track course-
 ---
 
 ### Implementation 🛠
-Built using TypeScript and Node.js, this application follows a Model-View-Controller (MVC) architecture.
+
+This application was built using TypeScript and Node.js. It also uses SimpleKit, a UI toolkit, for the interface design components. The architecture follows a Model-View-Controller (MVC) pattern, and utilizes the observer pattern to automatically update views in response to changes in the model's state.
 
 ---
 
